@@ -61,19 +61,19 @@ namespace Engine { namespace Graphics {
 
 		unsigned int c = a << 24 | b << 16 | g << 8 | r;
 
-		m_Buffer->vertex = position;
+		m_Buffer->vertex = *m_TransformationBack *  position;
 		m_Buffer->color = c;
 		m_Buffer++;
 
-		m_Buffer->vertex = Maths::vec3(position.x, position.y + size.y, position.z);
+		m_Buffer->vertex = *m_TransformationBack * Maths::vec3(position.x, position.y + size.y, position.z);
 		m_Buffer->color = c;
 		m_Buffer++;
 
-		m_Buffer->vertex = Maths::vec3(position.x + size.x, position.y + size.y, position.z);
+		m_Buffer->vertex = *m_TransformationBack * Maths::vec3(position.x + size.x, position.y + size.y, position.z);
 		m_Buffer->color = c;
 		m_Buffer++;
 		
-		m_Buffer->vertex = Maths::vec3(position.x + size.x, position.y, position.z);
+		m_Buffer->vertex = *m_TransformationBack * Maths::vec3(position.x + size.x, position.y, position.z);
 		m_Buffer->color = c;
 		m_Buffer++;
 
