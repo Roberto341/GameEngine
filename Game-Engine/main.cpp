@@ -1,11 +1,11 @@
 #include "src/graphics/window.h"
 #include "src/maths/maths.h"
+#include  "src/utils/timer.h"
 #include "src/graphics/simple2drenderer.h"
 #include "src/graphics/renderer2d.h"
 #include "src/graphics/static_sprite.h"
 #include "src/graphics/sprite.h"
 #include "src/graphics/BatchRenderer2D.h"
-//#include  "src/utils/timer.h"
 #include "src/graphics/layers/tilelayer.h"
 #include "src/graphics/layers/group.h"
 #include <time.h>
@@ -34,18 +34,21 @@ int main()
 
 	TileLayer layer(&shader);
 
+	Texture* textures[] =
+	{
+		new Texture("test.png"),
+		new Texture("b.png"),
+		new Texture("tc.png")
+	};
 	for (float y = -9.0f; y < 9.0f; y++)
 	{
 		for (float x = -16.0f; x < 16.0f; x++) //0.1
 		{
-			layer.add(new Sprite(x, y, 0.9f, 0.9f, Maths::vec4(rand() % 1000 / 1000.0f, 0, 1, 1))); // 0.9
+		//	layer.add(new Sprite(x, y, 0.9f, 0.9f, Maths::vec4(rand() % 1000 / 1000.0f, 0, 1, 1))); // 0.9
+			layer.add(new Sprite(x, y, 0.9f, 0.9f, textures[rand() % 3]));
 		}
 	}
-
-	glActiveTexture(GL_TEXTURE0);
-	Texture texture("test.png");
-	texture.bind();
-
+	
 	GLint texIDs[] =
 	{
 		0,1,2,3,4,5,6,7,8,9
@@ -55,7 +58,7 @@ int main()
 	shader.setUniform1iv("textures", texIDs, 10);
 	shader.setUniformMat4("pr_matrix", Maths::mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
-	//Timer time;
+	Timer time;
 	float timer = 0;
 
 	unsigned int frames = 0;
@@ -70,13 +73,15 @@ int main()
 		window.update();
 
 		frames++;
-		/*if(time.elapsed() - timer > 1.0f)
+		if(time.elapsed() - timer > 1.0f)
 		{
 			timer += 1.0f;
 			printf("%d fps\n", frames);
 			frames = 0;
-		}*/
+		}
 
 	}
+	for (int i = 0; i < 3; i++)
+		delete textures[i];
 	return 0;
 }
