@@ -1,5 +1,5 @@
 #include "simple2drenderer.h"
-
+#include "renderable2d.h"
 namespace Engine { namespace Graphics {
 
 	void Simple2DRenderer::submit(const Renderable2D* renderable)

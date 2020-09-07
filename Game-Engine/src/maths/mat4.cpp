@@ -1,6 +1,7 @@
 #include "mat4.h"
 
 namespace Engine {	namespace Maths {
+
 	mat4::mat4()
 	{
 		for (int i = 0; i < 4 * 4; i++)
@@ -59,14 +60,14 @@ namespace Engine {	namespace Maths {
 		);
 	}
 	
-	mat4& mat4::operator*=(const mat4& other)
-	{
-		return multiply(other);
-	}
-
 	mat4 operator*(mat4 left, const mat4& right)
 	{
 		return left.multiply(right);
+	}
+
+	mat4& mat4::operator*=(const mat4& other)
+	{
+		return multiply(other);
 	}
 
 	vec3 operator*(const mat4& left, const vec3& right)

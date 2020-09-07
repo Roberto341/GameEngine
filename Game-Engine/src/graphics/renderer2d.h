@@ -1,10 +1,13 @@
 #pragma once
 
+#include <vector>
 #include <GL/glew.h>
 #include "../maths/maths.h"
-#include "renderable2d.h"
+
+
 namespace Engine { namespace Graphics {
 
+    class Renderable2D;
 	class Renderer2D
 	{
 	protected:
