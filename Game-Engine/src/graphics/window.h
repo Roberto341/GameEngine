@@ -18,6 +18,8 @@ namespace Engine { namespace Graphics {
 	    bool m_Keys[MAX_KEYS];
 		bool m_MouseButtons[MAX_BUTTONS];
 		double mx, my;
+	//public:
+		//int m_width, m_height;
 	public:
 		Window(const char *title, int width, int height);
 		~Window();

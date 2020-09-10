@@ -1,7 +1,6 @@
 #include "layer.h"
 
 namespace Engine { namespace Graphics {
-
 	Layer::Layer(Renderer2D* renderer, Shader* shader, Maths::mat4 projectionMatrix)
 		: m_Renderer(renderer), m_Shader(shader), m_ProjectionMatrix(projectionMatrix)
 	{
@@ -27,12 +26,16 @@ namespace Engine { namespace Graphics {
 
 		m_Renderer->begin();
 		int i = 0;
-		for (const Renderable2D* renderable : m_Renderables)
-		{
-			renderable->submit(m_Renderer);
-		}
-			m_Renderer->end();
 
+		for (const Renderable2D* renderable : m_Renderables)
+			  renderable->submit(m_Renderer);
+
+			/*
+			References to using the drawString function
+			m_Renderer->drawString("Hello!", Maths::vec3(-5, 0, 0), Maths::vec4(0, 0, 0, 1));
+			*/
+
+			m_Renderer->end();
 			m_Renderer->flush();
 		}
 }}

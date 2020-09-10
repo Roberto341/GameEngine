@@ -27,10 +27,10 @@ namespace Engine {	namespace Graphics {
         std::vector<Maths::vec2> m_UV;
         Texture* m_Texture; 
     protected:
-        Renderable2D() { setUVDefaults(); }
+        Renderable2D() : m_Texture(nullptr) { setUVDefaults(); }
     public:
         Renderable2D(Maths::vec3 position, Maths::vec2 size, Maths::vec4 color)
-            : m_Position(position), m_Size(size), m_Color(color)
+            : m_Position(position), m_Size(size), m_Color(color), m_Texture(nullptr)
         { setUVDefaults(); }
         /*Delete the vertex array and index buffer*/
         virtual ~Renderable2D(){ }
@@ -45,7 +45,7 @@ namespace Engine {	namespace Graphics {
         inline const Maths::vec4& getColor() const { return m_Color; } // color of the shape 
         inline const std::vector<Maths::vec2>& getUV() const { return m_UV; } // uv of the shape
         
-        inline const GLuint getTID() const { return m_Texture == nullptr ? 0 : m_Texture->getID(); }
+        inline const GLuint getTID() const { return m_Texture ? m_Texture->getID() : 0; }
     private:
         void setUVDefaults()
         {

@@ -3,6 +3,7 @@
 #include "renderer2d.h"
 #include "renderable2d.h"
 #include "buffers/indexbuffer.h"
+#include "../../ext/freetype-gl/freetype-gl.h"
 namespace Engine{ namespace Graphics {
 
 #define RENDERER_MAX_SPRITES	60000
@@ -24,11 +25,14 @@ namespace Engine{ namespace Graphics {
 		VertexData* m_Buffer;
 
 		std::vector<GLuint> m_TextureSlots;
+		ftgl::texture_atlas_t* m_FTAtlas;
+		ftgl::texture_font_t* m_FTFont;
 	public:
 		BatchRenderer2D();
 		~BatchRenderer2D();
 		void begin() override;
 		void submit(const Renderable2D* renderable) override;
+		void drawString(const std::string& text, const Maths::vec3& position, const Maths::vec4& color) override;
 		void end() override;
 		void flush() override;
 	private:
