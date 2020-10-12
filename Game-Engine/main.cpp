@@ -52,7 +52,7 @@ int main()
 	Sprite* testSprite = new Sprite(5.0f, 5.0f, 3.0f, 3.0f, new Texture("tc.png"));
 	layer.add(testSprite);
 
-	Label* kar = new Label("Test", -13.0f, 3.0f, Maths::vec4(0, 0.3, 1, 1)); // I love you Karyna
+	Label* kar = new Label("Test", -13.0f, 3.0f, Maths::vec4(0, 0.3, 1, 1));
 	layer.add(kar);
 	GLint texIDs[] =
 	{
