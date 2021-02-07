@@ -12,8 +12,7 @@
 #include <FreeImage.h>
 #include "src/graphics/texture.h"
 #include "src/graphics/label.h"
-#define BATCH_RENDERER 1
-#define MULTI_SPRITES 0
+
 int main()
 {
 	/*Namespaces*/
@@ -37,7 +36,7 @@ int main()
 		new Texture("tc.png"),
 		new Texture("b.png"),
 	};
-#if MULTI_SPRITES
+/*
 	for (float y = -9.0f; y < 9.0f; y++)
 	{
 		for (float x = -16.0f; x < 16.0f; x++) //0.1
@@ -45,10 +44,11 @@ int main()
 			layer.add(new Sprite(x, y, 0.9f, 0.9f, textures[rand() % 2]));
 		}
 	}
-#else
-	Sprite* potato = new Sprite(5.0f, 5.0f, 3.0f, 3.0f, new Texture("tc.png"));
+*/
+	Texture* poatoTex = new Texture("tc.png");
+	Sprite* potato = new Sprite(5.0f, 5.0f, 3.0f, 3.0f, poatoTex);
 	layer.add(potato);
-#endif
+
 
 	Group* g = new Group(Maths::mat4::translation(Maths::vec3(-15.8f, 7.0f, 0.0f)));
 	Label* fps = new Label("", 0.4f, 0.4f, Maths::vec4(1, 1, 1, 1));
@@ -82,13 +82,13 @@ int main()
 		if(time.elapsed() - timer > 1.0f)
 		{
 			timer += 1.0f;
-			fps->text = (frames) + " fps";
 			printf("%d fps\n", frames);
 			frames = 0;
 		}
 	}
-	for (int i = 0; i < 2; i++) {
+	/*for (int i = 0; i < 2; i++) {
 		delete textures[i];
-	}
+	}*/
+	delete poatoTex;
 	return 0;
 }
