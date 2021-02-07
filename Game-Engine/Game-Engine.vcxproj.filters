@@ -184,6 +184,7 @@
     <ClCompile Include="ext\freetype-gl\vector.c">
       <Filter>Source Files\ext\freetype-gl</Filter>
     </ClCompile>
+    <ClCompile Include="src\graphics\label.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\utils\fileutils.h">
@@ -297,6 +298,8 @@
     <ClInclude Include="ext\freetype-gl\vector.h">
       <Filter>Header Files\ext\freetype-gl</Filter>
     </ClInclude>
+    <ClInclude Include="src\graphics\label.h" />
+    <ClInclude Include="ext\freetype-gl\opengl.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shaders\basic.frag">
@@ -345,5 +348,8 @@
     <Filter Include="Source Files\ext\freetype-gl">
       <UniqueIdentifier>{a223025a-6403-4053-a55d-8c34b9e64c4a}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="arial.ttf" />
   </ItemGroup>
 </Project>

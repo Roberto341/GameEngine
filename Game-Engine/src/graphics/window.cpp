@@ -1,8 +1,7 @@
 #include "window.h"
 
 namespace Engine {	namespace Graphics {
-	
-	
+
 	void window_resize(GLFWwindow* window, int width, int height);
 	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 	void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
@@ -44,7 +43,7 @@ namespace Engine {	namespace Graphics {
 		}
 		glfwMakeContextCurrent(m_window);
 		glfwSetWindowUserPointer(m_window, this);
-		glfwSetWindowSizeCallback(m_window, window_resize);
+		glfwSetFramebufferSizeCallback(m_window, window_resize);
 		glfwSetKeyCallback(m_window, key_callback);
 		glfwSetMouseButtonCallback(m_window, mouse_button_callback);
 		glfwSetCursorPosCallback(m_window, cursor_position_callback);
@@ -105,6 +104,9 @@ namespace Engine {	namespace Graphics {
 	void window_resize(GLFWwindow* window, int width, int height) 
 	{
 		glViewport(0, 0, width, height);
+		Window* win = (Window*)glfwGetWindowUserPointer(window);
+		win->m_width = width;
+		win->m_height = height;
 	}
 	/*Key callback*/
 	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)

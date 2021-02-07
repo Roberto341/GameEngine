@@ -3,9 +3,6 @@
 #include <string>
 #include <fstream>
 namespace Engine {
-	class FileUtils
-	{
-	public:
 		static std::string read_file(const char* filepath)
 		{
 			FILE* file = fopen(filepath, "rt");
@@ -21,6 +18,4 @@ namespace Engine {
 			delete[] data;
 			return result;
 		}
-	};
-	
 }

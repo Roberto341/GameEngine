@@ -11,6 +11,7 @@ namespace Engine { namespace Graphics {
 		Maths::mat4 m_TransformationMatrix;
 	public:
 		Group(const Maths::mat4& transform);
+	   ~Group();
 		void add(Renderable2D* renderable);
 		void submit(Renderer2D* renderer) const override;
 	};

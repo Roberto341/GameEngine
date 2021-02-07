@@ -13,7 +13,7 @@
 #include "src/graphics/texture.h"
 #include "src/graphics/label.h"
 #define BATCH_RENDERER 1
-
+#define MULTI_SPRITES 0
 int main()
 {
 	/*Namespaces*/
@@ -33,27 +33,29 @@ int main()
 	shader.setUniform2f("light_pos", vec2(4.0f, 1.5f)); // lighting
 
 	TileLayer layer(&shader);
-	Texture* textures[] =
-	{
-		new Texture("test.png"),
+	Texture* textures[] = { 
+		new Texture("tc.png"),
 		new Texture("b.png"),
-		new Texture("tc.png")
 	};
-#if 0
+#if MULTI_SPRITES
 	for (float y = -9.0f; y < 9.0f; y++)
 	{
 		for (float x = -16.0f; x < 16.0f; x++) //0.1
 		{
-		//	layer.add(new Sprite(x, y, 0.9f, 0.9f, Maths::vec4(rand() % 1000 / 1000.0f, 0, 1, 1))); // 0.9
-			layer.add(new Sprite(x, y, 0.9f, 0.9f, textures[rand() % 3]));
+			layer.add(new Sprite(x, y, 0.9f, 0.9f, textures[rand() % 2]));
 		}
 	}
+#else
+	Sprite* potato = new Sprite(5.0f, 5.0f, 3.0f, 3.0f, new Texture("tc.png"));
+	layer.add(potato);
 #endif
-	Sprite* testSprite = new Sprite(5.0f, 5.0f, 3.0f, 3.0f, new Texture("tc.png"));
-	layer.add(testSprite);
 
-	Label* kar = new Label("Test", -13.0f, 3.0f, Maths::vec4(0, 0.3, 1, 1));
-	layer.add(kar);
+	Group* g = new Group(Maths::mat4::translation(Maths::vec3(-15.8f, 7.0f, 0.0f)));
+	Label* fps = new Label("", 0.4f, 0.4f, Maths::vec4(1, 1, 1, 1));
+	g->add(new Sprite(0, 0, 5, 1.5f, Maths::vec4(0.3f, 0.3f, 0.3f, 0.9f)));
+	g->add(fps);
+
+	layer.add(g);
 	GLint texIDs[] =
 	{
 		0,1,2,3,4,5,6,7,8,9
@@ -72,7 +74,7 @@ int main()
 		window.clear();
 		double x, y;
 		window.getMousePosition(x, y);
-		shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / 960.0f - 16.0f), (float)(9.0f - y * 18.0f / 540.0f)));
+		shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / window.getWidth() - 16.0f), (float)(9.0f - y * 18.0f /window.getHeight())));
 		layer.render();
 
 		window.update();
@@ -80,27 +82,13 @@ int main()
 		if(time.elapsed() - timer > 1.0f)
 		{
 			timer += 1.0f;
+			fps->text = (frames) + " fps";
 			printf("%d fps\n", frames);
 			frames = 0;
 		}
-
-		if (window.isKeyPressed(GLFW_KEY_C)) {
-			kar->Color = Maths::vec4(0, 1, 0, 1);
-		}
-		if (window.isKeyPressed(GLFW_KEY_A)) {
-			testSprite->pos.x -= 0.1;
-		}
-		if (window.isKeyPressed(GLFW_KEY_D)) {
-			testSprite->pos.x += 0.1f;
-		}
-		if (window.isKeyPressed(GLFW_KEY_W)) {
-			testSprite->pos.y += 0.1f;
-		}
-		if (window.isKeyPressed(GLFW_KEY_S)) {
-			testSprite->pos.y -= 0.1f;
-		}
 	}
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 2; i++) {
 		delete textures[i];
+	}
 	return 0;
 }
