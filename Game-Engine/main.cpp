@@ -82,6 +82,7 @@ int main()
 		if(time.elapsed() - timer > 1.0f)
 		{
 			timer += 1.0f;
+			fps->text = std::to_string(frames) + " fps";
 			printf("%d fps\n", frames);
 			frames = 0;
 		}
