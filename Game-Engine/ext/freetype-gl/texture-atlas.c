@@ -328,7 +328,7 @@ texture_atlas_upload( texture_atlas_t * self )
 
 	self->dirty = 1;
 
-#if 1
+#if 0
     if( !self->id )
     {
         glGenTextures( 1, &self->id );
