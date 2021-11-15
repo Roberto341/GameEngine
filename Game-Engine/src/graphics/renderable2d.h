@@ -5,7 +5,7 @@
 #include "buffers/vertexarray.h"
 #include "renderer2d.h"
 #include "texture.h"
-#include "../maths/maths.h"
+#include "../math/maths.h"
 #include "shader.h"
 
 namespace Engine {	namespace Graphics {
@@ -47,8 +47,7 @@ namespace Engine {	namespace Graphics {
         
         inline const GLuint getTID() const { return m_Texture ? m_Texture->getID() : 0; }
     private:
-        void setUVDefaults()
-        {
+        void setUVDefaults() {
             m_UV.push_back(Maths::vec2(0, 0));
             m_UV.push_back(Maths::vec2(0, 1));
             m_UV.push_back(Maths::vec2(1, 1));

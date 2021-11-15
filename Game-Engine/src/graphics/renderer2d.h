@@ -2,9 +2,8 @@
 
 #include <vector>
 #include <GL/glew.h>
-#include "../maths/maths.h"
-
-
+#include "../math/maths.h"
+#include "font/font.h"
 namespace Engine { namespace Graphics {
 
     class Renderable2D;
@@ -39,7 +38,7 @@ namespace Engine { namespace Graphics {
 		}
 		virtual void begin() {}
 		virtual void submit(const Renderable2D* renderable) = 0;
-		virtual void drawString(const std::string& text, const Maths::vec3& position, const Maths::vec4& color) { }
+		virtual void drawString(const std::string& text, const Maths::vec3& position, const Font& font, const Maths::vec4& color) { }
 		virtual void end() {}
 		virtual void flush() = 0;
 	};

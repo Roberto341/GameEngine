@@ -17,6 +17,7 @@ namespace Engine { namespace Graphics {
 
 	    bool m_Keys[MAX_KEYS];
 		bool m_MouseButtons[MAX_BUTTONS];
+		bool m_KeyState[MAX_KEYS];
 		double mx, my;
 	//public:
 		//int m_width, m_height;

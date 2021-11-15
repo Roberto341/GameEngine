@@ -9,7 +9,7 @@ namespace Engine { namespace Graphics {
 		IndexBuffer* m_IndexBuffer;
 		Shader& m_Shader;
 	public:
-		StaticSprite(float x, float y, float width, float height, const Maths::vec4& color, Shader& shader);
+		StaticSprite(float x, float y, float width, float height, const Maths::vec4& color,Shader& shader);
 		~StaticSprite();
 
 		/*inline consts*/

@@ -1,7 +1,6 @@
 #include "window.h"
 
 namespace Engine {	namespace Graphics {
-
 	void window_resize(GLFWwindow* window, int width, int height);
 	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 	void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
@@ -17,6 +16,7 @@ namespace Engine {	namespace Graphics {
 		for (int i = 0; i < MAX_KEYS; i++)
 		{
 			m_Keys[i] = false;
+			m_KeyState[i] = false;
 		}
 		for (int i = 0; i < MAX_BUTTONS; i++)
 		{
@@ -88,6 +88,11 @@ namespace Engine {	namespace Graphics {
 	/*Update method*/
 	void Window::update()
 	{
+		for (int i = 0; i < MAX_KEYS; i++)
+		{
+			m_KeyState[i] = m_Keys[i];
+		}
+
 		GLenum error = glGetError();
 		if (error != GL_NO_ERROR)
 			std::cout << "OpenGL Error: " << error << std::endl;

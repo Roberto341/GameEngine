@@ -5,7 +5,7 @@
 #include <GL/glew.h>
 
 #include "../utils/fileutils.h"
-#include "../maths/maths.h"
+#include "../math/maths.h"
 namespace Engine { namespace Graphics {
 	
 	class Shader

@@ -19,9 +19,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\maths\mat4.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\graphics\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -38,15 +35,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\layers\tilelayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\maths\vec2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\maths\vec3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\maths\vec4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\buffers\vertexarray.cpp">
@@ -185,6 +173,13 @@
       <Filter>Source Files\ext\freetype-gl</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\label.cpp" />
+    <ClCompile Include="src\graphics\font\font.cpp" />
+    <ClCompile Include="src\graphics\font\font_manager.cpp" />
+    <ClCompile Include="src\math\mat4.cpp" />
+    <ClCompile Include="src\math\vec2.cpp" />
+    <ClCompile Include="src\math\vec3.cpp" />
+    <ClCompile Include="src\math\vec4.cpp" />
+    <ClCompile Include="src\sound\audio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\utils\fileutils.h">
@@ -206,15 +201,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\layers\layer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\maths\mat4.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\maths\maths.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\maths\maths_func.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\renderable2d.h">
@@ -242,15 +228,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\utils\timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\maths\vec2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\maths\vec3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\maths\vec4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\buffers\vertexarray.h">
@@ -300,25 +277,24 @@
     </ClInclude>
     <ClInclude Include="src\graphics\label.h" />
     <ClInclude Include="ext\freetype-gl\opengl.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\shaders\basic.frag">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="src\shaders\basic.vert">
-      <Filter>Source Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="b.png">
-      <Filter>Source Files</Filter>
-    </Image>
-    <Image Include="tc.png">
-      <Filter>Source Files</Filter>
-    </Image>
-    <Image Include="test.png">
-      <Filter>Source Files</Filter>
-    </Image>
+    <ClInclude Include="src\graphics\font\font.h" />
+    <ClInclude Include="src\graphics\font\font_manager.h" />
+    <ClInclude Include="src\math\mat4.h" />
+    <ClInclude Include="src\math\maths.h" />
+    <ClInclude Include="src\math\maths_func.h" />
+    <ClInclude Include="src\math\vec2.h" />
+    <ClInclude Include="src\math\vec3.h" />
+    <ClInclude Include="src\math\vec4.h" />
+    <ClInclude Include="src\sound\fmod.h" />
+    <ClInclude Include="src\sound\fmod.hpp" />
+    <ClInclude Include="src\sound\fmod_codec.h" />
+    <ClInclude Include="src\sound\fmod_common.h" />
+    <ClInclude Include="src\sound\fmod_dsp.h" />
+    <ClInclude Include="src\sound\fmod_dsp_effects.h" />
+    <ClInclude Include="src\sound\fmod_errors.h" />
+    <ClInclude Include="src\sound\fmod_output.h" />
+    <ClInclude Include="src\sound\fmod_uwp.h" />
+    <ClInclude Include="src\sound\audio.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
@@ -350,6 +326,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="arial.ttf" />
+    <Font Include="res\fonts\arial.ttf" />
+    <Font Include="res\fonts\ebrima.ttf" />
+    <Font Include="res\fonts\ebrimabd.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\b.png" />
+    <Image Include="res\player.png" />
+    <Image Include="res\tc.png" />
+    <Image Include="res\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\basic.frag" />
+    <None Include="res\shaders\basic.vert" />
+    <None Include="res\fonts\cambria.ttc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\Audio\Throwdown.mp3" />
   </ItemGroup>
 </Project>
