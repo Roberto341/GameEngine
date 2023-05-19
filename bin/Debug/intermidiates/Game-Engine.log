@@ -1,0 +1,9 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Preview\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(502,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+  main.cpp
+C:\Users\Junior\Desktop\GameEngine\Game-Engine\src\math\maths_func.h(9,18): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  LINK : C:\Users\Junior\Desktop\GameEngine\bin\Debug\Game-Engine.exe not found or not built by the last incremental link; performing full link
+glew32s.lib(glew.obj) : warning LNK4099: PDB '' was not found with 'glew32s.lib(glew.obj)' or at ''; linking object as if no debug info
+     Creating library C:\Users\Junior\Desktop\GameEngine\bin\Debug\Game-Engine.lib and object C:\Users\Junior\Desktop\GameEngine\bin\Debug\Game-Engine.exp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Game-Engine.vcxproj -> C:\Users\Junior\Desktop\GameEngine\bin\Debug\Game-Engine.exe
